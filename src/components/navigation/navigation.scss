@@ -1,0 +1,44 @@
+
+.navigation {
+    background-color: var(--white);
+    box-shadow: 0px 0px 18px -3px rgba(0,0,0,0.33);
+    border-radius: var(--base-radius);
+    padding: 7px 0;
+    position: fixed;
+    transform: translate(0, -15px);
+
+    .button {
+        padding: 10px 30px;
+
+        img {
+            width: 30px;
+            height: 30px;
+            display: none;
+        }
+
+        .title {
+            color: var(--font-color-trans);
+            transition: all .3s ease 0s;
+            display: block;
+        }
+
+        &.active {
+            .title {
+                color: var(--font-color);
+            }
+        }
+
+        @media (max-width: 900px) {
+            padding: 7.5px 15px;
+            .title {
+                display: none;
+            }
+            img {
+                display: block;
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+}

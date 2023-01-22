@@ -1,0 +1,103 @@
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .names {
+        font-size: 34px;
+        display: flex;
+        align-items: center;
+        .username {
+            font-weight: 600;
+            cursor: pointer;
+            max-width: 400px;
+            overflow: hidden;
+        }
+        .albumname {
+            max-width: 250px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        img.lock {
+            width: 25px;
+            height: 25px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        p {
+            margin: 0;
+        }
+        @media (max-width: 1200px) {
+            font-size: 24px;
+        }
+        @media (max-width: 850px) {
+            font-size: 20px;
+            img.lock {
+                margin-left: 10px;
+            }
+        }
+    }
+    .acc-info {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        .button {
+            .title {
+                display: block;
+            }
+            img {
+                width: 30px;
+                height: 30px;
+            }
+            &.label > img {
+                display: none;
+            }
+            @media (max-width: 1200px) {
+                &.label {
+                    padding: 5px 20px;
+                }
+                img {
+                    width: 25px;
+                    height: 25px;
+                }
+                .title {
+                    display: none;
+                }
+                &.label > img {
+                    display: block;
+                }
+            }
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: default;
+            .digit {
+                font-size: 20px;
+                font-weight: 500;
+            }
+            .label {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media (max-width: 740px) {
+        flex-direction: column;
+        gap: 20px;
+        .names {
+            flex-wrap: wrap;
+        }
+        .acc-info {
+            .info > .digit {
+                font-size: 16px;
+            }
+            .info > .label {
+                font-size: 12px;
+            }
+        }
+    }
+}

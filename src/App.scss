@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
+
+:root {
+  --base-font: 'Montserrat', sans-serif;
+  --base-color: #005d6c;
+  --second-color: #ADBDFF;
+  --font-color: #3f4144;
+  --font-color-trans: #3f414455;
+  --base-radius: 20px;
+  --white: #fdfcdc;
+  --red: #BB342F;
+  --red-pale: #DF7F7C;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--font-color);
+  font-family: var(--base-font);
+  font-size: 14px;
+  font-weight: 400;
+  background-color: var(--white);
+  overflow: overlay;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--font-color-trans);
+  border-radius: var(--base-radius);
+}
+
+.container {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.button {
+  border-radius: var(--base-radius);
+  width: fit-content;
+  font-weight: 600;
+  padding: 10px 20px;
+  color: var(--white);
+  background-color: var(--base-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .3s ease 0s;
+
+  &:hover {
+    box-shadow: 0px 0px 18px -2px var(--base-color);
+  }
+
+  &.outline {
+    padding: 7px 20px;
+    box-sizing: border-box;
+    border: 3px solid var(--base-color);
+    background-color: transparent;
+    color: var(--font-color);
+  }
+  &.red {
+    background-color: var(--red);
+    &:hover {
+      box-shadow: 0px 0px 18px -2px var(--red);
+    }
+  }
+
+  &.big {
+    font-size: 24px;
+    padding: 15px 30px;
+    @media (max-width: 640px) {
+      font-size: 20px;
+      padding: 15px 25px;
+    }
+  }
+  &.small {
+    font-size: 10px;
+    padding: 5px 10px;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &.thin {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0;
+    background-color: transparent;
+    color: var(--font-color-trans);
+    transition: all .3s ease 0s;
+    &:hover {
+        box-shadow: none;
+        color: var(--font-color);
+    }
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.input[type=text], .input[type=password], .input[type=email] {
+  outline: none;
+  border: 2px solid var(--font-color-trans);
+  border-radius: 10px;
+  // border-top: 0;
+  // border-right: 0;
+  // border-left: 0;
+  font-size: 16px;
+  padding: 3px 10px;
+  background-color: transparent;
+  color: var(--font-color);
+  transition: all .3s ease 0s;
+
+  &:focus {
+    border-color: var(--font-color);
+  }
+}
+
+.input[type=checkbox] {
+  margin: 0;
+  cursor: pointer;
+  width: 45px;
+  height: 25px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    box-shadow: 0px 0px 18px -3px rgba(0,0,0,0.33);
+    border-radius: var(--base-radius);
+    transition: all .3s ease 0s;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    transform: translate(20%, -50%);
+    border-radius: 50%;
+    background-color: var(--second-color);
+    transition: all .3s ease 0s;
+  }
+
+  &.active {
+    &::before {
+      background-color: var(--second-color);
+    }
+    &::after {
+      transform: translate(100%, -50%);
+      background-color: var(--base-color);
+    }
+  }
+}
+
+.file {
+
+  input {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .file-button {
+
+  }
+}

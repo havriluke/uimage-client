@@ -1,0 +1,39 @@
+
+.search-modal {
+
+    .search-bar {
+        display: flex;
+        position: relative;
+
+        input {
+            width: 100%;
+        }
+        img {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            display: block;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .search-list {
+        height: 200px;
+        overflow: scroll;
+        margin: 20px;
+
+        .search-item {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 10px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: var(--base-color);
+            }
+        }
+    }
+}

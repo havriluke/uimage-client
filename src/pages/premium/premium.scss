@@ -1,0 +1,29 @@
+
+.premium {
+    // background: linear-gradient(0deg, var(--white) 0%, var(--second-color) 100%);
+
+    .container {
+        padding-top: calc(105px + 75px);
+        position: relative;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url('../../assets/circle.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: -40%;
+            left: 10%;
+            width: 75vw;
+            height: 75vw;
+            transform: translate(-53%, -30%);
+            z-index: -1;
+        }
+
+        @media (max-width: 1200px) {
+            &::before {
+                display: none;
+            }
+        }
+    }
+}

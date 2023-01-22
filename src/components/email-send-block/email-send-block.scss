@@ -1,0 +1,39 @@
+
+.email-send-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin-top: 30px;
+
+    .email-field {
+        display: flex;
+        gap: 10px;
+        .input {
+            width: 180px;
+        }
+        .button {
+            
+        }
+    }
+    .code-field {
+        display: flex;
+        justify-content: flex-end;
+        .input {
+            width: 60px;
+        }
+    }
+
+    @media (max-width: 460px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        .email-field {
+            width: 100%;
+            justify-content: space-between;
+            .input {
+                width: calc(100% - 50px);
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+
+.about {
+
+    .container {
+        padding-top: calc(105px + 50px);
+
+        .content {
+            margin-left: 320px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .content {
+                margin-left: 100px;
+            }
+        }
+        @media (max-width: 640px) {
+            .content {
+                margin-left: 90px;
+            }
+        }
+    }
+}

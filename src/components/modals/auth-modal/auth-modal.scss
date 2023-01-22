@@ -1,0 +1,19 @@
+
+
+.auth-modal {
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .input {
+
+        }
+
+        .button.forget {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    }
+}

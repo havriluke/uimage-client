@@ -1,0 +1,24 @@
+
+
+.upload-images-modal {
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .file {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                display: block;
+            }
+            input {
+
+            }
+        }
+    }
+}
