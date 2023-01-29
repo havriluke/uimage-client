@@ -10,17 +10,17 @@
             grid-template-columns: repeat(4, 22vw);
             justify-content: space-between;
             align-items: space-between;
-            grid-template-rows: 22vw;
+            grid-auto-rows: 22vw;
             grid-row-gap: .7vw;
 
             @media (max-width: 1000px) {
                 grid-template-columns: repeat(3, 29.5vw);
-                grid-template-rows: 29.5vw;
+                grid-auto-rows: 29.5vw;
                 margin-top: 35px;
             }
             @media (max-width: 700px) {
                 grid-template-columns: repeat(2, 44.5vw);
-                grid-template-rows: 44.5vw;
+                grid-auto-rows: 44.5vw;
             }
             // @media (max-width: 500px) {
             //     grid-template-columns: repeat(1, 90vw);
