@@ -3,6 +3,7 @@ import './image-view.scss'
 import leftArrow from '../../../assets/icons/arrow-left.svg'
 import rightArrow from '../../../assets/icons/arrow-right.svg'
 import closeIcon from '../../../assets/icons/close.svg'
+import closeIconW from '../../../assets/icons/white/close.svg'
 import fullscreenIcon from '../../../assets/icons/white/fullscreen.svg'
 import fullscreenExitIcon from '../../../assets/icons/white/fullscreen-exit.svg'
 import settingIcon from '../../../assets/icons/white/setting.svg'
@@ -29,10 +30,6 @@ const ImageView = ({modalActive, closeModal, data, moveFunc, isFirst, isLast, ed
         editFunc()
     }
 
-    const close = () => {
-        closeModal()
-    }
-
     const mousemoveFunc = () => {
         if (controlsActive) return
         setControlsActive(true)
@@ -45,37 +42,28 @@ const ImageView = ({modalActive, closeModal, data, moveFunc, isFirst, isLast, ed
         if (modalActive) setScrollCoords(window.scrollY)
     }, [modalActive])
 
-    useEffect(() => {
-        const disableScrolling = () => {
-            const x = window.scrollX
-            const y = window.scrollY
-            window.onscroll = () => window.scrollTo(x, y)
-        }
-        const enableScrolling = () => {
-            window.onscroll = null
-        }
-        modalActive ? disableScrolling() : enableScrolling()
-    }, [modalActive])
-
-    useSlideEvent(close, close, moveLeft, moveRight, modalActive)
+    useSlideEvent(()=>{}, ()=>{}, moveLeft, moveRight, modalActive)
 
     return (
         <>
         {modalActive && <div onMouseMove={mousemoveFunc} onClick={mousemoveFunc} className={`image-view ${fullscreen ? 'fullscreen' : ''}`}>
 
             <div className={`control ${controlsActive ? 'active' : ''}`}>
-                {windowSize.width > 500 && !isFirst && <div className="left side">
-                    <div className="arrow" onClick={moveLeft}>
+                {windowSize.width > 500 && <div className="left side">
+                    {!isFirst && <div className="arrow" onClick={moveLeft}>
                         <img src={leftArrow}/>
-                    </div>
+                    </div>}
                 </div>}
-                {windowSize.width > 500 && !isLast && <div className="right side">
+                {windowSize.width > 500 && <div className="right side">
                     <div className="close" onClick={closeModal}>
                         <img src={closeIcon} />
                     </div>
-                    <div className="arrow" onClick={moveRight}>
+                    {!isLast && <div className="arrow" onClick={moveRight}>
                         <img src={rightArrow} />
-                    </div>
+                    </div>}
+                </div>}
+                {windowSize.width < 500 && <div onClick={closeModal} className="close-mobile">
+                    <img src={closeIconW} />
                 </div>}
                 <div className="count">
                     <span>{index+1} / {count}</span>

@@ -38,6 +38,7 @@ const Navbar = observer(() => {
 
   const logoutFunc = () => {
     logout().then(() => {
+      navigate(MAIN_ROUTE)
       navigate(0)
     })
   }
