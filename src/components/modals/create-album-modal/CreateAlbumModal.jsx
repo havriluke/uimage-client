@@ -1,6 +1,7 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createAlbum } from '../../../http/albumAPI'
+import { MAIN_ROUTE } from '../../../utils/consts'
 import Modal from '../modal/Modal'
 import './create-album-modal.scss'
 
@@ -27,6 +28,13 @@ const CreateAlbumModal = ({modalActive, closeModal}) => {
         if (e.keyCode !== 13) return
         submit()
     }
+
+    useEffect(() => {
+        if (!!modalActive) return
+        setError('')
+        setIsPrivate(false)
+        setName('')
+    }, [modalActive])
 
     return (
         <Modal

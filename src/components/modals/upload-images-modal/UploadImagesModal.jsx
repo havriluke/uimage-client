@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { add } from '../../../http/imageAPI'
+import { MAIN_ROUTE } from '../../../utils/consts'
+import Loader from '../../loader/Loader'
 import Modal from '../modal/Modal'
 import './upload-images-modal.scss'
 
@@ -32,7 +34,9 @@ const UploadImagesModal = ({modalActive, closeModal, name}) => {
         for (let index = 0; index < imageFiles.length; index++) {
             toBase64(imageFiles[index]).then((base64string) => {
                 add(imageFiles[index].name, base64string, name).then(() => {
-                    if (imageFiles[index].size === mostSize) navigate(0)
+                    if (imageFiles[index].size === mostSize) {
+                        navigate(MAIN_ROUTE)
+                    }
                 }).catch((err) => {
                     setError(err.response.data.message)
                 })
@@ -41,6 +45,13 @@ const UploadImagesModal = ({modalActive, closeModal, name}) => {
             })
         }
     }
+
+    useEffect(() => {
+        if (!modalActive && !isUploaded) {
+            setError('')
+            setImageFiles([])
+        }
+    }, [modalActive])
 
     return (
         <Modal
@@ -56,9 +67,10 @@ const UploadImagesModal = ({modalActive, closeModal, name}) => {
 
                 <div className="inputs">
                     <div className="file">
-                        <label className='button outline' htmlFor='upload-images'>
-                            {`${isUploaded ? 'Uploading...' : 'Choose image'}`}
-                        </label>
+                        {!isUploaded && <label className='button outline' htmlFor='upload-images'>
+                            Choose image
+                        </label>}
+                        {isUploaded && <Loader small size={35} />}
                         <input
                             type="file"
                             multiple

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../modal/Modal'
 import './search-modal.scss'
@@ -30,6 +30,13 @@ const SearchModal = ({modalActive, closeModal}) => {
         if (e.keyCode !== 13) return
         submit()
     }
+
+    useEffect(() => {
+        if (!!modalActive) return
+        setError('')
+        setSearchBar('')
+        setSearchList([])
+    }, [modalActive])
 
     return (
         <Modal

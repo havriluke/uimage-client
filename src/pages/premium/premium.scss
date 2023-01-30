@@ -8,6 +8,7 @@
         
         &::before {
             content: '';
+            display: none;
             position: absolute;
             background-image: url('../../assets/circle.svg');
             background-repeat: no-repeat;
@@ -24,6 +25,11 @@
             &::before {
                 display: none;
             }
+        }
+
+        .banner {
+            font-size: 64px;
+            text-align: center;
         }
     }
 }

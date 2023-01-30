@@ -3,12 +3,12 @@ import './modal.scss'
 
 const Modal = (props) => {
 
-    useEffect(() => {
-        if (!props.active || !props.autoFocus) return
-        setTimeout(() => {
-            props.autoFocus.current.focus()
-        }, 550)
-    }, [props.active])
+    // useEffect(() => {
+    //     if (!props.active || !props.autoFocus) return
+    //     setTimeout(() => {
+    //         props.autoFocus.current.focus()
+    //     }, 550)
+    // }, [props.active])
 
     useEffect(() => {
         const disableScrolling = () => {
@@ -23,7 +23,8 @@ const Modal = (props) => {
     }, [props.active])
 
     return (
-        <div className={`modal ${props.active ? 'active':''}`}>
+        <>
+        {props.active && <div className={`modal`}>
             <div className="content">
                 <div className="top">
                     {!!props.title && <div className="title">{props.title}</div>}
@@ -52,7 +53,9 @@ const Modal = (props) => {
             {!!props.error.length && <div className="error">
                 {props.error}
             </div>}
-        </div>
+        </div>}
+        </>
+        
     )
 }
 

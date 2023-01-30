@@ -62,6 +62,15 @@ const SecureModal = ({modalActive, closeModal, name}) => {
         })
     }
 
+    useEffect(() => {
+        if (!!modalActive) return
+        setError('')
+        setSearchBar('')
+        setSearchList([])
+        setSearchMode('search')
+        setActiveMode('search')
+    }, [modalActive])
+
     return (
         <Modal
             button={'Search'}

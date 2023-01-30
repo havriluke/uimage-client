@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../modal/Modal'
 import { rename, remove } from '../../../http/imageAPI'
 import './edit-image-modal.scss'
+import { MAIN_ROUTE } from '../../../utils/consts'
 
 const EditImageModal = ({modalActive, closeModal, imageName, albumName}) => {
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ const EditImageModal = ({modalActive, closeModal, imageName, albumName}) => {
             return
         }
         rename(albumName, imageName, newName).then(() => {
-            navigate(0)
+            navigate(MAIN_ROUTE)
         }).catch((err) => {
             setError(err.response.data.message)
         })
@@ -29,11 +30,17 @@ const EditImageModal = ({modalActive, closeModal, imageName, albumName}) => {
 
     const deleteFunc = () => {
         remove(imageName, albumName).then(() => {
-            navigate(0)
+            navigate(MAIN_ROUTE)
         }).catch((err) => {
             setError(err.response.data.message)
         })
     }
+
+    useEffect(() => {
+        if (!!modalActive) return
+        setError('')
+        setNewName('')
+    }, [modalActive])
 
     return (
         <Modal

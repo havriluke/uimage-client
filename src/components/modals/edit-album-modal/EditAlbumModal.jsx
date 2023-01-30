@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { rename, deleteAlbum } from '../../../http/albumAPI'
 import Modal from '../modal/Modal'
@@ -17,7 +17,7 @@ const EditAlbumModal = ({modalActive, closeModal, name}) => {
             return
         }
         rename(name, newName).then(() => {
-            navigate(0)
+            navigate(MAIN_ROUTE)
         }).catch((err) => {
             setError(err.response.data.message)
         })
@@ -35,6 +35,12 @@ const EditAlbumModal = ({modalActive, closeModal, name}) => {
             setError(err.response.data.message)
         })
     }
+
+    useEffect(() => {
+        if (!!modalActive) return
+        setError('')
+        setNewName('')
+    }, [modalActive])
 
     return (
         <Modal

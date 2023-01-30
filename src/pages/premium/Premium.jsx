@@ -7,7 +7,8 @@ const Premium = () => {
   return (
     <div className='premium'>
       <div className="container">
-        <Plans />
+        {/* <Plans /> */}
+        <div className="banner">Cumming soon 💦💦</div>
       </div>
     </div>
   )

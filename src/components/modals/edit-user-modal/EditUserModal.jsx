@@ -1,7 +1,8 @@
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { edit } from '../../../http/userAPI'
+import { MAIN_ROUTE } from '../../../utils/consts'
 import EmailSendBlock from '../../email-send-block/EmailSendBlock'
 import Modal from '../modal/Modal'
 import './edit-user-modal.scss'
@@ -21,11 +22,24 @@ const EditUserModal = ({modalActive, closeModal}) => {
 
     const submit = () => {
         edit(password, email, code, newUsername, newPassword, newEmail, newCode).then(() => {
+            navigate(MAIN_ROUTE)
             navigate(0)
         }).catch((err) => {
             setError(err.response.data.message)
         })
     }
+
+    useEffect(() => {
+        if (!!modalActive) return
+        setError('')
+        setCode('')
+        setNewCode('')
+        setEmail('')
+        setNewEmail('')
+        setPassword('')
+        setNewUsername('')
+        setNewPassword('')
+    }, [modalActive])
 
     return (
         <Modal

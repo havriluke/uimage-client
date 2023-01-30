@@ -49,12 +49,12 @@ const ImageView = ({modalActive, closeModal, data, moveFunc, isFirst, isLast, ed
         {modalActive && <div onMouseMove={mousemoveFunc} onClick={mousemoveFunc} className={`image-view ${fullscreen ? 'fullscreen' : ''}`}>
 
             <div className={`control ${controlsActive ? 'active' : ''}`}>
-                {windowSize.width > 500 && <div className="left side">
+                {windowSize.width > 700 && <div className="left side">
                     {!isFirst && <div className="arrow" onClick={moveLeft}>
                         <img src={leftArrow}/>
                     </div>}
                 </div>}
-                {windowSize.width > 500 && <div className="right side">
+                {windowSize.width > 700 && <div className="right side">
                     <div className="close" onClick={closeModal}>
                         <img src={closeIcon} />
                     </div>
@@ -62,7 +62,7 @@ const ImageView = ({modalActive, closeModal, data, moveFunc, isFirst, isLast, ed
                         <img src={rightArrow} />
                     </div>}
                 </div>}
-                {windowSize.width < 500 && <div onClick={closeModal} className="close-mobile">
+                {windowSize.width < 700 && <div onClick={closeModal} className="close-mobile">
                     <img src={closeIconW} />
                 </div>}
                 <div className="count">

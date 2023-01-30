@@ -65,9 +65,12 @@ const AuthModal = ({modalActive, closeModal}) => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            usernameRef.current.focus()
-        }, 500);
+        if (!!modalActive) return
+        setCode('')
+        setEmail('')
+        setError('')
+        setPassword('')
+        setUsername('')
     }, [modalActive])
 
     const navigate = useNavigate()
