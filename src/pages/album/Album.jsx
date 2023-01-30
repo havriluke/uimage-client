@@ -63,6 +63,7 @@ const Album = observer(() => {
         isFirst={imageActiveIndex === 0}
         isLast={imageActiveIndex === albumData.images.length - 1}
         index={imageActiveIndex}
+        count={albumData.images.length}
       />
 
       <EditImageModal
