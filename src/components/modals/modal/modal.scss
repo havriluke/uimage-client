@@ -29,6 +29,19 @@
             .title {
                 font-size: 28px;
             }
+            .types {
+                display: flex;
+                justify-content: center;
+                .type {
+                    cursor: pointer;
+                    font-size: 17px;
+                    padding: 0 20px 5px;
+                    &.active {
+                        font-weight: 500;
+                        border-bottom: 2px solid var(--base-color);
+                    }
+                }
+            }
         }
         .middle {
             margin: 20px 0;

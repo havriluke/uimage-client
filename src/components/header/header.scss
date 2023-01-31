@@ -59,19 +59,28 @@
             }
         }
         @media (max-width: 640px) {
-            // .title {
-            //     font-size: 64px;
-            // }
-            // .descr {
-            //     font-size: 24px;
-            // }
-        }
-        @media (max-width: 460px) {
             .title {
                 font-size: 64px;
+                text-align: center;
             }
             .descr {
                 font-size: 24px;
+                text-align: center;
+            }
+            .button {
+                margin: 20px auto 0;
+            }
+        }
+        @media (max-width: 460px) {
+            .title {
+                font-size: 72px;
+            }
+            .descr {
+                font-size: 22px;
+                display: none;
+            }
+            .button {
+                margin: 100px auto 0;
             }
         }
     }

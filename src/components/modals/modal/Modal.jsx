@@ -28,6 +28,13 @@ const Modal = (props) => {
             <div className="content">
                 <div className="top">
                     {!!props.title && <div className="title">{props.title}</div>}
+                    {!!props.types && <div className="types">
+                        {props.types.map((type, index) => {
+                            return <div className={`type ${type.active ? 'active' : ''}`} onClick={type.func}>
+                                {type.title}
+                            </div>
+                        })}
+                    </div> }
                 </div>
                 <div className="middle">
                     {props.children}

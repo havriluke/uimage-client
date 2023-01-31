@@ -17,9 +17,9 @@ const Footer = () => {
                     
                     <div className="list-item">Privacy policy</div>
                     <div className="medias">
-                        <div className="media "><box-icon type="logo" name="instagram" color="#ffffff"></box-icon></div>
+                        <div className="media "><box-icon type="logo" name="instagram" color="#F1FFE7"></box-icon></div>
                         {/* <div className="media"><box-icon type="logo" name="telegram" color="#ffffff"></box-icon></div> */}
-                        <div className="media"><box-icon type="logo" name="facebook" color="#ffffff"></box-icon></div>
+                        <div className="media"><box-icon type="logo" name="facebook" color="#F1FFE7"></box-icon></div>
                     </div> 
                      
                 </div>

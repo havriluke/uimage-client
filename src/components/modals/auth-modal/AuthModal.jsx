@@ -79,15 +79,15 @@ const AuthModal = ({modalActive, closeModal}) => {
         <>
         {!!userLogin && <img src={`${API_URL}api/user/hash/elem?login=${userLogin}`}/>}
         <Modal
-            title={modes[activeMode].title}
             button={'Submit'}
             active={modalActive}
             error={error}
             closeFunc={closeModal}
             submitFunc={modes[activeMode].func}
-            modeFunc={activeMode === 'login' ?
-                {title: 'Sign Up', styles: 'auth', func: () => {setActiveMode('register')}} :
-                {title: 'Sign In', styles: 'auth', func: () => {setActiveMode('login')}}}
+            types={[
+                { title: 'Sign Up', func: () => setActiveMode('register'), active: activeMode === 'register' },
+                { title: 'Sign In', func: () => setActiveMode('login'), active: activeMode === 'login' },
+            ]}
             >
             <div className="auth-modal">
                 <div className="inputs">

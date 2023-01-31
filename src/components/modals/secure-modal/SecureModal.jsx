@@ -79,9 +79,13 @@ const SecureModal = ({modalActive, closeModal, name}) => {
             closeFunc={closeModal}
             autoFocus={searchRef}
             submitFunc={submit}
-            modeFunc={activeMode !== 'accesses' ?
-                {title: 'Remove access', styles: 'auth', func: () => {setActiveMode('accesses')}} :
-                {title: 'Add access', styles: 'auth', func: () => {setActiveMode('search')}}}
+            // modeFunc={activeMode !== 'accesses' ?
+            //     {title: 'Remove access', styles: 'auth', func: () => {setActiveMode('accesses')}} :
+            //     {title: 'Add access', styles: 'auth', func: () => {setActiveMode('search')}}}
+            types={[
+                { title: 'Add access', func: () => setActiveMode('search'), active: activeMode === 'search' },
+                { title: 'Remove access', func: () => setActiveMode('accesses'), active: activeMode === 'accesses' },
+            ]}
         >
 
             <div className="secure-modal">
